@@ -4,7 +4,7 @@ GRANT ALL ON medico.* TO 'root'@'127.0.0.1' IDENTIFIED by 'zappeysfc';
 
 USE medico;
 CREATE TABLE users (
-	user_id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    user_id INTEGER NOT NULL AUTO_INCREMENT,
     fname VARCHAR(128),
     lname VARCHAR(128),
     email VARCHAR(128),
@@ -13,7 +13,7 @@ CREATE TABLE users (
     month VARCHAR(15),
     year INTEGER(4),
     password VARCHAR(128),
-    INDEX(username)
+    PRIMARY KEY(user_id)
 ) ENGINE = InnoDB;
 
 INSERT INTO users(fname, lname, email, username, password) VALUES ("Arjun","Basandrai","arjunbasandrai2004@gmail.com","Arjun122","956152c4943615f5b45ba32bb8ba4ebf");
@@ -32,13 +32,13 @@ INSERT INTO hospitals(name, address,site,coordinates, contact) VALUES ("Christia
 INSERT INTO hospitals(name, address,site,coordinates, contact) VALUES ("Naruvi Hospital", "Chennai - Bengaluru Highway, 72, Collector's Office Rd, Vellore - 632004, Tamil Nadu","https://www.naruvihospitals.com/", POINT(12.9349454,79.1391878),'04166661111');
 
 CREATE TABLE salt (
-	salt_id INTEGER NOT NULL AUTO_INCREMENT,
+    salt_id INTEGER NOT NULL AUTO_INCREMENT,
     name VARCHAR(255),
     PRIMARY KEY(salt_id)
 )ENGINE = InnoDB;
 
 CREATE TABLE medicines (
-	med_id INTEGER NOT NULL AUTO_INCREMENT,
+    med_id INTEGER NOT NULL AUTO_INCREMENT,
     name VARCHAR(255),
     salt_id INTEGER,
     PRIMARY KEY(med_id),
@@ -49,7 +49,7 @@ CREATE TABLE medicines (
 )ENGINE = InnoDB;
 
 CREATE TABLE pharm (
-	pharm_id INTEGER NOT NULL AUTO_INCREMENT,
+    pharm_id INTEGER NOT NULL AUTO_INCREMENT,
     name VARCHAR(255),
     address VARCHAR(255),
     coordinates POINT,
@@ -58,7 +58,7 @@ CREATE TABLE pharm (
 )ENGINE = InnoDB;
 
 CREATE TABLE stock (
-	stock_id INTEGER NOT NULL AUTO_INCREMENT,
+    stock_id INTEGER NOT NULL AUTO_INCREMENT,
     stock INTEGER,
     rate FLOAT,
     med_id INTEGER,
@@ -75,7 +75,7 @@ CREATE TABLE stock (
 )ENGINE = InnoDB;
 
 CREATE TABLE orders (
-	order_id INTEGER NOT NULL AUTO_INCREMENT,
+    order_id INTEGER NOT NULL AUTO_INCREMENT,
     user_id INTEGER,
     stock_id INTEGER,
     stock INTEGER,
@@ -92,7 +92,7 @@ CREATE TABLE orders (
 )ENGINE = InnoDB;
 
 CREATE TABLE cart (
-	cart_id INTEGER NOT NULL AUTO_INCREMENT,
+    cart_id INTEGER NOT NULL AUTO_INCREMENT,
     user_id INTEGER,
     stock_id INTEGER,
     stock INTEGER,
