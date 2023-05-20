@@ -1,0 +1,143 @@
+.primary-menu {
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+}
+.primary-menu ul {
+    list-style: none;
+    letter-spacing: 0.1em;
+    line-height: 1.5;
+    margin: 0 !important;
+}
+
+.primary-menu ul li{
+    margin: 0 10px;
+}
+
+.primary-menu ul li a{
+    text-decoration: none;
+    color: #353535;
+}
+
+.primary-menu ul li a:hover{
+    opacity: 0.8;
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.flexbox {
+    display: flex;
+}
+
+.flexrow {
+    flex-direction: row;
+}
+
+.site-title {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    text-decoration: none;
+    font-size: 0.1em;
+}
+
+.custom-logo-link {
+    flex: 50%;
+}
+
+.main-navigation {
+    flex: 70%;
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    max-height: 100%;
+    background-color: #fff;
+    padding: 20px 40px;
+    z-index: 9999;
+    border-bottom: 1px solid #dedede;
+}
+
+.toggle-label {
+    flex: 50%;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.primary-menu ul li a{
+    display: inline-block;
+    position: relative;
+}
+  
+.primary-menu ul li a:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0) translateY(4px);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(53, 53, 53);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.primary-menu ul li a:hover:after {
+    transform: scaleX(1) translateY(4px);
+    transform-origin: bottom left;
+}
+
+.toggle-icon {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 30px;
+    background: #141414;
+}
+
+.toggle-icon:first-child {
+    transform: translateY(-7px);
+}
+
+.toggle-icon:last-child {
+    transform: translateY(7px);
+}
+
+@media (min-width : 992px){
+    .toggle-label {
+        display: none;
+    }
+}
+
+@media (max-width: 992px) {
+
+    .site-header, .primary-menu, .primary-menu ul {
+        display: block;
+    }
+
+    .primary-menu {
+        margin: 20px 0 0 0;
+    }
+
+    .main-navigation {
+        height: 0;
+        transform: scaleY(0);
+    }
+
+    .nav-toggle:checked ~ nav {
+        height: 100%;
+        transform: scaleY(1);
+    }
+
+    .primary-menu ul li {
+        margin: 15px 0;
+    }
+
+    .primary-menu ul li a:after {
+        transform-origin: bottom left;
+    }
+}

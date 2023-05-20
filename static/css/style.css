@@ -90,6 +90,152 @@ label {
     margin-bottom: 20px;
 }
 
+/* homepage */
+
+.get-med-form {
+    width: 100%;
+    justify-content: center;
+    max-width: 720px;
+}
+
+.get-med-form > input {
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 1.1em;
+}
+
+.get-med {
+    flex: 1 1 0%;
+    margin-right: 20px;
+    border: 1px solid #111 !important;
+}
+
+.get-med-form > input[type*="submit"] {
+    padding: 20px 40px;
+    cursor: pointer;
+    background: #8e74ff;
+    color: #fff;
+    transition: .5s all ease-out;
+}
+
+.get-med-form > input[type*="submit"]:hover {
+    background: #9B85FF;
+}
+
+.site-save {
+    background-color: #fff;
+    padding: 60px 40px;
+}
+
+.pharm-row {
+    padding-top: 20px;
+    width: 100%;
+}
+
+.site-pharm {
+    flex: 25%;
+    background-color: #fff;
+    box-shadow: 0 0 5px 1px #ededed;
+    border-radius: 10px;
+    margin: 25px;
+    padding: 20px;
+}
+
+hr {
+    --clr: #c4c4c4;
+    border-color: var(--clr);
+    background-color: var(--clr);
+    color: var(--clr);
+    border-top: 1px;
+    height: 1px;
+    margin: 15px 0;
+}
+
+.pharm-p {
+    font-size: 1.15em;
+    font-weight: bolder;
+    margin-bottom: 15px;
+}
+
+.site-pharm ul {
+    padding: 0 20px;
+    margin: 20px 0;
+}
+
+.site-pharm ul li{
+    margin: 5px 0;
+    color: #434343;
+}
+
+.site-pharm a, .coms a {
+    display: block;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-decoration: none;
+    width: 100%;
+    border: 1px solid #8e74ff;
+    color: #8e74ff;
+    border-radius: 10px;
+    padding: 10px 20px;
+    transition: .5s color ease-out, .3s background-color ease-out;
+}
+
+.site-pharm a:hover, .coms a:hover {
+    background-color: #9B85FF;
+    color: #f4f4f4;
+}
+
+.common {
+    background-color: #6aff6a;
+    padding: 25px;
+}
+
+.common h2 {
+    margin: 10px 25px 0;
+}
+
+.coms {
+    flex: 30%;
+    margin: 25px;
+}
+
+.com-img {
+    border-radius: 10px;
+    width: 100%;
+}
+
+.coms hr {
+    --clr: #8e74ff;
+    border-color: var(--clr);
+    background-color: var(--clr);
+    color: var(--clr);
+}
+
+.coms p:not(.common-desc) {
+    color: #464646;
+    margin-top: 10px;
+    font-size: 1.2em;
+    text-align: center;
+    font-weight: bold;
+}
+
+.common-desc {
+    font-size: 1.1em;
+    text-align: left;
+    color: #464646;
+    margin-bottom: 10px;
+    padding: 10px 0;
+}
+
+.footer {
+    background: #6aff6a;
+    border-top: 1px solid #2be52b;
+    color: #fff;
+    text-align: center;
+    padding: 25px 0;
+}
 
 @media screen and (max-width: 992px) {
     
