@@ -9,15 +9,13 @@ CREATE TABLE users (
     lname VARCHAR(128),
     email VARCHAR(128),
     username VARCHAR(128),
-    date INTEGER(2),
-    month VARCHAR(15),
-    year INTEGER(4),
+    dob DATE,
     password VARCHAR(128),
     PRIMARY KEY(user_id)
 ) ENGINE = InnoDB;
 
-INSERT INTO users(fname, lname, email, username, password) VALUES ("Arjun","Basandrai","arjunbasandrai2004@gmail.com","Arjun122","956152c4943615f5b45ba32bb8ba4ebf");
-INSERT INTO users(fname, lname, email, username, password) VALUES ("Test","Sample","text@sample.com", "Test", "6c30734811916b0f0f24a4630b08036f");
+INSERT INTO users(fname, lname, email, username, dob, password) VALUES ("Arjun","Basandrai","arjunbasandrai2004@gmail.com","Arjun122", "2004-07-01", "956152c4943615f5b45ba32bb8ba4ebf");
+INSERT INTO users(fname, lname, email, username, dob, password) VALUES ("Test","Sample","text@sample.com", "Test", "2015-05-01", "6c30734811916b0f0f24a4630b08036f");
 
 CREATE TABLE hospitals(
     h_id INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,

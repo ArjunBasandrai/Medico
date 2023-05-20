@@ -71,10 +71,13 @@
             <h1>Login to Medico</h1>
             <?php
                 if (isset($_SESSION['status']) && $_SESSION['status']=="Invalid") {
-                    echo "<p class='errpass'>Incorrect Username/Password</p>";
+                    echo "<p class='errpass' style='margin-bottom:10px;'>*Incorrect Username/Password</p>";
                     unset($_SESSION['status']);
                 }
-                // echo $_SESSION['status'];
+                if (isset($_SESSION['sgn'])) {
+                    print("<p style='color:green;margin-bottom:10px;'>".$_SESSION['sgn']."</p>");
+                    unset($_SESSION['sgn']);
+                }
             ?>
             <form method="post" action="" class="login-form">
                 <label for="uname">Username</label>

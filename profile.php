@@ -5,22 +5,22 @@
         header('Location: login.php');
         return;
     } else {
-        $sql = "SELECT fname, lname, email, year FROM users WHERE username=:name";
+        $sql = "SELECT fname, lname, email, dob FROM users WHERE username=:name";
         $stmt = $pdo->prepare($sql);
         $stmt->execute(array(
             ":name" => $_SESSION['uname']
         ));
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
     }
-    if (isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['email']) && isset($_POST['year'])) {
-        if ($_POST['fname'] != $row['fname'] || $_POST['lname'] != $row['lname'] || $_POST['email'] != $row['email'] || $_POST['year'] != $row['year']) {
-            $sql = "UPDATE users SET fname=:fname, lname=:lname, email=:email, year=:year WHERE username=:uname";
+    if (isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['email']) && isset($_POST['dob'])) {
+        if ($_POST['fname'] != $row['fname'] || $_POST['lname'] != $row['lname'] || $_POST['email'] != $row['email'] || $_POST['dob'] != $row['dob']) {
+            $sql = "UPDATE users SET fname=:fname, lname=:lname, email=:email, dob=:dob WHERE username=:uname";
             $stmt = $pdo->prepare($sql);
             $stmt->execute(array(
                 ":fname" => $_POST['fname'],
                 ":lname" => $_POST['lname'],
                 ":email" => $_POST['email'],
-                ":year" => $_POST['year'],
+                ":dob" => date('Y-m-d',strtotime($_POST['dob'])),
                 ":uname" => $_SESSION['uname']
             ));
         } 
@@ -74,8 +74,8 @@
                         <input type="email" name="email" value="<?= $row['email']; ?>" required>
                     </div>
                     <div>
-                        <label for="name"><h3>Year of Birth</h3></label>
-                        <input type="number" name="year" value="<?= $row['year']; ?>" required>
+                        <label for="dob"><h3>Date of Birth</h3></label>
+                        <input type="date" name="dob" value="<?= date("Y-m-d", strtotime($row["dob"])); ?>" required>
                     </div>
                 </div>
                 <div class="info-row flexbox flexrow">
