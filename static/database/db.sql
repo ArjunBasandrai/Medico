@@ -30,3 +30,61 @@ CREATE TABLE hospitals(
 
 INSERT INTO hospitals(name, address,site,coordinates, contact) VALUES ("Christian Medical College and Hospital", "Christian Medical College, Ida Scudder Road, Vellore - 632004,Tamil Nadu","https://www.cmch-vellore.edu/", POINT(12.9245745,79.1352709), '+919498760000');
 INSERT INTO hospitals(name, address,site,coordinates, contact) VALUES ("Naruvi Hospital", "Chennai - Bengaluru Highway, 72, Collector's Office Rd, Vellore - 632004, Tamil Nadu","https://www.naruvihospitals.com/", POINT(12.9349454,79.1391878),'04166661111');
+
+CREATE TABLE salt (
+	salt_id INTEGER NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255),
+    PRIMARY KEY(salt_id)
+)ENGINE = InnoDB;
+
+CREATE TABLE medicines (
+	med_id INTEGER NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255),
+    salt_id INTEGER,
+    PRIMARY KEY(med_id),
+    
+    CONSTRAINT FOREIGN KEY (salt_id)
+    REFERENCES salt (salt_id)
+    ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE = InnoDB;
+
+CREATE TABLE pharm (
+	pharm_id INTEGER NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255),
+    coordinates POINT,
+    PRIMARY KEY(pharm_id)
+)ENGINE = InnoDB;
+
+CREATE TABLE stock (
+	stock_id INTEGER NOT NULL AUTO_INCREMENT,
+    stock INTEGER,
+    rate FLOAT,
+    med_id INTEGER,
+    pharm_id INTEGER,
+    PRIMARY KEY(stock_id),
+    
+    CONSTRAINT FOREIGN KEY (med_id)
+    REFERENCES medicines (med_id)
+    ON DELETE CASCADE ON UPDATE CASCADE,
+    
+    CONSTRAINT FOREIGN KEY (pharm_id)
+    REFERENCES pharm (pharm_id)
+    ON DELETE CASCADE ON UPDATE CASCADE
+)ENGINE = InnoDB;
+
+CREATE TABLE orders (
+	order_id INTEGER NOT NULL AUTO_INCREMENT,
+    user_id INTEGER,
+    stock_id INTEGER,
+    stock INTEGER,
+    status INTEGER,
+    PRIMARY KEY(order_id),
+    
+    CONSTRAINT FOREIGN KEY (user_id)
+    REFERENCES users (user_id)
+    ON UPDATE CASCADE ON DELETE CASCADE,
+    
+    CONSTRAINT FOREIGN KEY (stock_id)
+    REFERENCES stock (stock_id)
+    ON UPDATE CASCADE ON DELETE CASCADE
+)ENGINE = InnoDB;
