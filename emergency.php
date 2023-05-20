@@ -7,7 +7,7 @@
         unset($_COOKIE['lat']);
         unset($_COOKIE['long']);
     }
-    ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -44,42 +44,15 @@
                 } else {
             ?>
             <div class="head ref flexbox">
-                    <h1>OOPS! Medico is unable to detect your location</h1>
-                    <h2>Allow location access from your browser settings and Refresh the page</h2>
-                    <button class="ref" onclick="location.reload()">Refresh</button>
+                <h1>OOPS! Medico is unable to detect your location</h1>
+                <h2>Allow location access from your browser settings and Refresh the page</h2>
+                <button class="ref" onclick="location.reload()">Refresh</button>
             </div>
             <?php
                 }
             ?>
             
     </section>
-    <script>
-        function createCookie(name, value, days) {
-            var expires;
-            
-            if (days) {
-                var date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                expires = "; expires=" + date.toGMTString();
-            }
-            else {
-                expires = "";
-            }
-            
-            document.cookie = escape(name) + "=" + 
-                escape(value) + expires + "; path=/";
-        }
-
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
-            }
-        }
-
-        function showPosition(position) {
-            createCookie("lat", position.coords.latitude, "0.5");
-            createCookie("long", position.coords.longitude, "0.5");
-        }
-    </script>
+    <script src="location.js"></script>
 </body>
 </html>

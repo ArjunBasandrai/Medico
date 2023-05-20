@@ -51,7 +51,9 @@ CREATE TABLE medicines (
 CREATE TABLE pharm (
 	pharm_id INTEGER NOT NULL AUTO_INCREMENT,
     name VARCHAR(255),
+    address VARCHAR(255),
     coordinates POINT,
+    contact VARCHAR(15),
     PRIMARY KEY(pharm_id)
 )ENGINE = InnoDB;
 
@@ -88,3 +90,85 @@ CREATE TABLE orders (
     REFERENCES stock (stock_id)
     ON UPDATE CASCADE ON DELETE CASCADE
 )ENGINE = InnoDB;
+
+CREATE TABLE cart (
+	cart_id INTEGER NOT NULL AUTO_INCREMENT,
+    user_id INTEGER,
+    stock_id INTEGER,
+    stock INTEGER,
+    status INTEGER,
+    PRIMARY KEY(cart_id),
+    
+    CONSTRAINT FOREIGN KEY (user_id)
+    REFERENCES users (user_id)
+    ON UPDATE CASCADE ON DELETE CASCADE,
+    
+    CONSTRAINT FOREIGN KEY (stock_id)
+    REFERENCES stock (stock_id)
+    ON UPDATE CASCADE ON DELETE CASCADE
+)ENGINE = InnoDB;
+
+INSERT INTO salt(name) VALUES ("Paracetamol");
+INSERT INTO salt(name) VALUES ("Aspirin");
+INSERT INTO salt(name) VALUES ("Ibuprofen");
+INSERT INTO salt(name) VALUES ("Albuterol");
+INSERT INTO salt(name) VALUES ("Metoprolol");
+INSERT INTO salt(name) VALUES ("Naproxen Sodium");
+
+INSERT INTO medicines (name, salt_id) VALUES ("Crocin", 1);
+INSERT INTO medicines (name, salt_id) VALUES ("Dolo 650", 1);
+INSERT INTO medicines (name, salt_id) VALUES ("Calpol 500", 1);
+INSERT INTO medicines (name, salt_id) VALUES ("Disprin", 2);
+INSERT INTO medicines (name, salt_id) VALUES ("Ecosprin", 2);
+INSERT INTO medicines (name, salt_id) VALUES ("Delisprin", 2);
+INSERT INTO medicines (name, salt_id) VALUES ("Advil", 3);
+INSERT INTO medicines (name, salt_id) VALUES ("Midol",3);
+INSERT INTO medicines (name, salt_id) VALUES ("Motrin", 3);
+INSERT INTO medicines (name, salt_id) VALUES ("Proair RFA", 4);
+INSERT INTO medicines (name, salt_id) VALUES ("Proventil HFA", 4);
+INSERT INTO medicines (name, salt_id) VALUES ("Ventolin HFA", 4);
+INSERT INTO medicines (name, salt_id) VALUES ("Asoprol-AS", 5);
+INSERT INTO medicines (name, salt_id) VALUES ("Amtas-S", 5);
+INSERT INTO medicines (name, salt_id) VALUES ("Lopressor", 5);
+INSERT INTO medicines (name, salt_id) VALUES ("Stirlescent", 6);
+INSERT INTO medicines (name, salt_id) VALUES ("Naprosyn", 6);
+INSERT INTO medicines (name, salt_id) VALUES ("Napra-D", 6);
+
+INSERT INTO pharm (name, address, coordinates,contact) VALUES ("Arun Pharmacy", "448 Chennai Main Road, Brammapuram, Katpadi, Vellore - 632014, Tamil Nadu" , POINT(12.9669094,79.1722112), "09944779189");
+INSERT INTO pharm (name, address, coordinates,contact) VALUES ("Apollo Pharmacy", "Bus Stop, No.272,Chittoor, Katpadi, Vellore - 632007, Tamil Nadu", POINT(12.9664374,79.1368947), "04162244019");
+INSERT INTO pharm (name, address, coordinates,contact) VALUES ("Om Siva Medicals", "2/2, Illango street, Tharaparvedu, Road, Katpadi, Vellore - 632007, Tamil Nadu", POINT(12.9672954,79.1373159), "09994614457");
+INSERT INTO pharm (name, address, coordinates,contact) VALUES ("Shanthi Medicals", "No. 216, Vellore Road, Vellore Road, K.S.M. Store, Tarapada Vedu, Katpadi, Vellore - 632007, Tamil Nadu" , POINT(12.9674875,79.1371891), "04162246721");
+
+INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (1, 1, 15, 20);
+INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (1, 2, 25, 28.5);
+INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (1, 4, 15, 10);
+INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (1, 3, 15, 14.5);
+INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (1, 7, 5, 500);
+INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (1, 12, 3, 105);
+INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (1, 11, 8, 121);
+
+INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (2, 1, 15, 15);
+INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (2, 2, 5, 25);
+INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (2, 3, 35, 12);
+INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (2, 4, 15, 9.5);
+INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (2, 17, 5, 50);
+INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (2, 15, 2, 150);
+INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (2, 7, 5, 480);
+
+INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (3, 1, 10, 15);
+INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (3, 2, 6, 25);
+INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (3, 3, 35, 18);
+INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (3, 4, 25, 7);
+INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (3, 17, 5, 57.5);
+INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (3, 15, 2, 154);
+INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (3, 7, 5, 500);
+
+INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (4, 1, 15, 20);
+INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (4, 2, 25, 31.5);
+INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (4, 4, 15, 8.5);
+INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (4, 3, 15, 15);
+INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (4, 7, 5, 600);
+INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (4, 12, 3, 100);
+INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (4, 11, 8, 100);
+INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (3, 17, 5, 59.5);
+INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (3, 15, 2, 145);

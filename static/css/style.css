@@ -374,7 +374,7 @@ input[type=number]::-webkit-outer-spin-button {
     align-items: center;
 }
 
-.hpt-card div {
+.hpt-card div, .med-card {
     display: inline-block;
     padding: 20px;
     box-shadow: 0 0 15px 3px #eee;
@@ -382,11 +382,11 @@ input[type=number]::-webkit-outer-spin-button {
     max-width: 500px;
 }
 
-.hpt-card div h2 {
+.hpt-card div h2, .med-card h2 {
     font-size: 1.8em;
 }
 
-.hpt-card div p {
+.hpt-card div p, .med-card p {
     margin: 5px 0;
 }
 
@@ -398,24 +398,25 @@ input[type=number]::-webkit-outer-spin-button {
     text-decoration: underline;
 }
 
-.hpt-card div a:not(.hptl) {
+.hpt-card div a:not(.hptl){
     float: right;
     color: #fff;
-    padding: 20px 40px;
+    padding: 20px 80px;
     border: none;
     border-radius: 10px;
     background: #9B85FF;
     border: 1px solid #9B85FF;
     margin-top: 10px;
     transition: .3s background ease-in, .4s color ease-out;
+    cursor: pointer;
 }
 
-.hpt-card div a:not(.hptl):hover {
+.hpt-card div a:not(.hptl):hover  {
     color: #9B85FF;
     background: #fff;
 }
 
-.hpt-card div * {
+.hpt-card div *, .med-card {
     color: #353535;
 }
 
@@ -446,6 +447,65 @@ input[type=number]::-webkit-outer-spin-button {
 
 .ref > button:hover {
     background: #9B85FF;
+}
+
+/* medicines page */
+
+.med-cards {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.med-card {
+    min-width: 560px;
+    margin: 20px 0 0 0 ;
+}
+
+.med-ord {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.med-det{
+    flex-direction: column;
+    flex: 50%;
+    justify-content: center;
+}
+
+.med-ord p{
+    flex: 50%;
+}
+
+.med-ord form {
+    flex: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.quant {
+    height: 100%;
+    text-align: center;
+    max-width: 50px;
+    margin: 0 10px;
+}
+
+.sub {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #9B85FF;
+    color: #9B85FF;
+    background: transparent;
+    border-radius: 10px;
+    transition: .2s background ease-in, .4s color ease-out;
+    cursor: pointer;
+}
+
+.sub:hover {
+    background: #9B85FF;
+    color: #fff;
 }
 
 @media screen and (max-width: 992px) {
