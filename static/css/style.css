@@ -188,7 +188,6 @@ hr {
 }
 
 .common {
-    background-color: #6aff6a;
     padding: 25px;
 }
 
@@ -366,10 +365,125 @@ input[type=number]::-webkit-outer-spin-button {
     color: #575757 !important;
 }
 
+/* emergency page */
+
+.hpt-card {
+    flex-direction: column;
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.hpt-card div {
+    display: inline-block;
+    padding: 20px;
+    box-shadow: 0 0 15px 3px #eee;
+    border-radius: 10px;
+    max-width: 500px;
+}
+
+.hpt-card div h2 {
+    font-size: 1.8em;
+}
+
+.hpt-card div p {
+    margin: 5px 0;
+}
+
+.hpt-card div a {
+    text-decoration: none;
+}
+
+.hptl:hover {
+    text-decoration: underline;
+}
+
+.hpt-card div a:not(.hptl) {
+    float: right;
+    color: #fff;
+    padding: 20px 40px;
+    border: none;
+    border-radius: 10px;
+    background: #9B85FF;
+    border: 1px solid #9B85FF;
+    margin-top: 10px;
+    transition: .3s background ease-in, .4s color ease-out;
+}
+
+.hpt-card div a:not(.hptl):hover {
+    color: #9B85FF;
+    background: #fff;
+}
+
+.hpt-card div * {
+    color: #353535;
+}
+
+.ref h2, .ref h1{
+    color: #434343;
+}
+
+.ref h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.ref h2 {
+    font-size: 1.5em;
+    margin: 10px 0 20px;
+}
+
+.ref > button {
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding: 20px 80px;
+    cursor: pointer;
+    background: #8e74ff;
+    color: #fff;
+    transition: .5s all ease-out;
+}
+
+.ref > button:hover {
+    background: #9B85FF;
+}
+
 @media screen and (max-width: 992px) {
+    .get-med-form{
+        flex-direction: column !important;
+    }
+
+    .head h1 {
+        font-size: 2.5em;
+    }
+
+    .get-med {
+        margin: 0 0 10px;
+    }
     
-    .logo{
+    .pharm-row {
+        flex-direction: column !important;
+    }
+
+    .pharm-row > div:nth-child(even) {
         display: none;
     }
 
+    .com-row {
+        flex-direction: column !important;
+    }
+
+    .logo{
+        display: none;
+    }
+    
+    .info-row {
+        flex-direction: column !important;
+    }
+}
+
+@media screen and (max-width: 568px) {
+    .get-med-form > input[type*="submit"] {
+        display: none;
+    }
 }
