@@ -28,14 +28,6 @@
     display: none;
 }
 
-.flexbox {
-    display: flex;
-}
-
-.flexrow {
-    flex-direction: row;
-}
-
 .site-title {
     position: absolute;
     clip: rect(1px, 1px, 1px, 1px);

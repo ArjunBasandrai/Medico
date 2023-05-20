@@ -18,15 +18,27 @@ h1,h2,h3,h4,h5,h6 {
     color: #1f1f1f;
 }
 
+.flexbox {
+    display: flex;
+}
+
+.flexrow {
+    flex-direction: row;
+}
+
+/* login page */
+
 .signin {
     background: #fff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 20px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 0 25px 2px rgba(0,0,0,0.2);
+    /* max-width: 500px; */
 }
 
-.signin > h2 {
+.signin > h1 {
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .login-form label {
@@ -37,7 +49,7 @@ label {
     font-size: 1.1em;
 }
 
-.login-form input , .login-form button {
+.login-form input {
     width: 100%;
     height: 35px;
     background: #fff;
@@ -52,9 +64,9 @@ label {
     font-size: 14px;
 }
 
-.login-form input[type*="submit"] {
-    background: transparent;
-    color: #9B85FF;
+.login-form input[type*="submit"], .signup-form input[type*="submit"] {
+    background: #9B85FF;
+    color: #fff;
     font-size: 16px;
     padding: 0;
     margin: 10px 0 30px;
@@ -63,9 +75,36 @@ label {
     transition: .2s all ease-out;
 }
 
-.login-form input[type*="submit"]:hover {
-    background: #9B85FF;
-    color: #fff;
+.login-form input[type*="submit"]:hover,.signup-form input[type*="submit"]:hover {
+    background: transparent;
+    color: #9B85FF;
+}
+
+.sn-h {
+    margin-bottom: 40px !important;
+}
+
+.sn-row div {
+    flex: 50%;
+    margin-bottom: 20px;
+}
+
+.sn-row div:first-child {
+    margin-right: 10px;
+}
+
+.sn-row input {
+    width: 100%;
+    padding: 10px 0 5px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #000;
+}
+
+.signup-form input[type*="submit"] {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 0;
 }
 
 .login-form {
