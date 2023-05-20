@@ -1,6 +1,10 @@
 <?php 
     require_once "pdo.php";
     session_start();
+    if (isset($_SESSION['uname'])) {
+        header('Location: index.php');
+        return;
+    }
     $_SESSION['status'] = 'ud';
     if (isset($_POST['uname']) && isset($_POST['pass'])) {
         unset($_SESSION['uname']);
@@ -46,6 +50,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login form</title>
     <link rel="stylesheet" href="static/css/style.css">
+    <link rel="icon" type="image/x-icon" href="static/imgs/favicon.ico">
     <style>
     body {
         background: rgba(142, 116, 255,.4);
