@@ -237,6 +237,135 @@ hr {
     padding: 25px 0;
 }
 
+/* profile page  */
+
+.profile-container {
+    box-shadow: 0 0 10px 1px #eee;
+    margin: 40px;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.profile-container hr {
+    margin: 5px 0;
+}
+
+.member-top {
+    width: 100%;
+}
+
+.member {
+    flex: 80%;
+    align-items: end;
+}
+
+.member p {
+    color: #434343;
+    margin: 5px 0;
+}
+
+.logout {
+    flex: 20%;
+    justify-content: end;
+    align-items: end;
+}
+
+.logout a {
+    color: #9B85FF;
+    text-decoration: none;
+}
+
+.logout a:hover {
+    text-decoration: underline;
+}
+
+.p-info {
+    margin: 25px 0 15px;
+}
+
+.p-info p {
+    color: #434343;
+    margin-top: 5px;
+}
+
+.info-row{
+    width: 100%;
+}
+
+.info-row div{
+    flex: 50%;
+    padding-right: 10px;
+}
+
+.info-row input:not(.info-row input[type*="submit"]) {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 0 10px;
+    font-size: 1.2em;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #c5b8ff;
+    transition: .1s all ease-out;
+}
+
+.info-row input:not(.info-row input[type*="submit"]):active, .info-row input:not(.info-row input[type*="submit"]):hover, .info-row input:not(.info-row input[type*="submit"]):focus {
+    border-color: #9B85FF;
+}
+
+.info-row:last-child {
+    justify-content: end;
+}
+
+.info-row input[type*="submit"] {
+    font-size: 1.1em;
+    border: none;
+    outline: none;
+    padding: 10px;
+    margin: 10px 10px 0 0;
+    border-radius: 10px;
+    background-color: transparent;
+    border: 2px solid #c5b8ff;
+    color: #c5b8ff;
+    transition: .3s all ease-out;
+    cursor: pointer;
+}
+
+.info-row input[type*="submit"]:hover {
+    border-color: #9B85FF;
+    background-color: #9B85FF;
+    color: #fff;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
+.records {
+    padding: 20px 10px;
+    background: #fbfbfb;
+}
+
+.records a {
+    text-decoration: none;
+}
+
+.records p{
+    color: #434343;
+    margin: 5px 0;
+}
+
+.records:hover {
+    background: #fdfdfd;
+}
+
+.records:hover *{
+    color: #575757 !important;
+}
+
 @media screen and (max-width: 992px) {
     
     .logo{
