@@ -5,7 +5,11 @@
         header('Location: index.php');
         return;
     }
-    $_SESSION['status'] = 'ud';
+    if (isset($_SESSION['status'])) {
+        if ($_SESSION['status'] != "Invalid") {
+        $_SESSION['status'] = 'ud';
+        }
+    }
     if (isset($_POST['uname']) && isset($_POST['pass'])) {
         unset($_SESSION['uname']);
 
@@ -34,7 +38,7 @@
                 return;
             } 
             else {
-                $_SESSION['status'] = 'Inavlid';
+                $_SESSION['status'] = 'Invalid';
                 header('Location: login.php');
                 return;
             }
@@ -66,10 +70,11 @@
         <div class="signin">
             <h1>Login to Medico</h1>
             <?php
-                if ($_SESSION['status']=="Invalid") {
+                if (isset($_SESSION['status']) && $_SESSION['status']=="Invalid") {
                     echo "<p class='errpass'>Incorrect Username/Password</p>";
                     unset($_SESSION['status']);
                 }
+                // echo $_SESSION['status'];
             ?>
             <form method="post" action="" class="login-form">
                 <label for="uname">Username</label>
@@ -78,10 +83,9 @@
                 <input type="password" placeholder="Enter your password" name="pass" id="pass" required>
                 <br><a href="#">Forget Password?</a><br><br>
                 <input type="submit" value="Login">
-                <p>Dont have an account? <a target="_blank" href="signup.php">Sign up</a></p>
+                <p>Dont have an account? <a href="signup.php">Sign up</a></p>
             </form>
         </div>
     </div>
 </body>
 </html>
-

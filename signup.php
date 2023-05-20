@@ -5,6 +5,9 @@
         header('Location: index.php');
         return;
     }
+    if (isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['uname']) && isset($_POST['email']) %% isset($_POST['pass']) && isset($_POST['cpass'])) {
+        
+    }
 ?>
 
 <!DOCTYPE html>
@@ -30,25 +33,25 @@
     <div class="main">
         <div class="signin">
             <h1 class="sn-h">Signup to Medico</h1>
-            <form method="post" action="" class="signup-form">
+            <form method="post" action="signup.php" class="signup-form">
                 <div class="sn-row flexbox flexrow">
                     <div>
-                        <label for="uname">First Name</label>
+                        <label for="fname">First Name</label>
                         <input type="text" placeholder="Enter your first name" name="fname" id="fname" required>
                     </div>
                     <div>
-                        <label for="uname">Last Name</label>
-                        <input type="text" placeholder="Enter your last name" name="fname" id="fname" required>
+                        <label for="lname">Last Name</label>
+                        <input type="text" placeholder="Enter your last name" name="lname" id="lname" required>
                     </div>
                 </div>
                     
                 <div class="sn-row flexbox flexrow">
                     <div>
                         <label for="uname">Username</label>
-                        <input type="text" placeholder="Enter your username" name="uname" id="uname" required>
+                        <input type="text" placeholder="Enter a username" name="uname" id="uname" required>
                     </div>
                     <div>
-                        <label for="uname">Email Address</label>
+                        <label for="email">Email Address</label>
                         <input type="email" placeholder="Enter your email" name="email" id="email" required>
                     </div>
                 </div>
@@ -59,7 +62,7 @@
                         <input type="password" placeholder="Enter your password" name="pass" id="pass" required>
                     </div>
                     <div>
-                        <label for="pass">Confirm Password</label>
+                        <label for="cpass">Confirm Password</label>
                         <input type="password" placeholder="Re-enter your password" name="cpass" id="cpass" required>
                     </div>
                 </div>
@@ -70,4 +73,3 @@
     </div>
 </body>
 </html>
-
