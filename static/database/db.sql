@@ -170,3 +170,20 @@ INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (4, 12, 3, 100);
 INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (4, 11, 8, 100);
 INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (3, 17, 5, 59.5);
 INSERT INTO stock(pharm_id, med_id, stock, rate) VALUES (3, 15, 2, 145);
+
+CREATE TABLE padmin(
+	padmin_id INTEGER NOT NULL AUTO_INCREMENT,
+    p_id INTEGER(5),
+    pharm_id INTEGER,
+    password VARCHAR(255),
+    PRIMARY KEY(padmin_id),
+    
+    CONSTRAINT FOREIGN KEY (pharm_id)
+    REFERENCES pharm (pharm_id)
+    ON UPDATE CASCADE ON DELETE CASCADE
+)ENGINE = InnoDB;
+
+INSERT INTO padmin (p_id,pharm_id,password) VALUES (13250,4,"3a29ceb0b1c491c5975e4987f501cae3");
+INSERT INTO padmin (p_id,pharm_id,password) VALUES (13251,3,"caff358b29f836ff791e33bf3e50a9af");
+INSERT INTO padmin (p_id,pharm_id,password) VALUES (13252,2,"a6c3e0efd0f84503604553bf11b7d40e");
+INSERT INTO padmin (p_id,pharm_id,password) VALUES (13253,1,"5455c33e251ab225e5c61c67e1902769");
