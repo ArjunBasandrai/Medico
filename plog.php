@@ -1,8 +1,8 @@
 <?php 
     require_once "pdo.php";
     session_start();
-    if (isset($_SESSION['uname'])) {
-        header('Location: index.php');
+    if (isset($_SESSION['p_id'])) {
+        header('Location: pharm.php');
         return;
     }
     if (isset($_SESSION['status'])) {
