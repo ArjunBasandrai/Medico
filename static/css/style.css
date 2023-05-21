@@ -385,7 +385,6 @@ hr {
     margin: 40px 0 !important;
 }
 
-
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
     -webkit-appearance: none;
@@ -399,21 +398,8 @@ input[type=number]::-webkit-outer-spin-button {
     background: #fbfbfb;
 }
 
-.records a {
-    text-decoration: none;
-}
-
-.records p{
-    color: #434343;
-    margin: 5px 0;
-}
-
-.records:hover {
-    background: #fdfdfd;
-}
-
-.records:hover *{
-    color: #575757 !important;
+.order {
+    background: transparent !important;
 }
 
 /* emergency page */

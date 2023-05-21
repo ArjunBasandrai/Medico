@@ -95,7 +95,6 @@
             <hr class="ph-hr">
             <?php } ?>
         </div>
-        <hr>
     </section>
 </body>
 </html>

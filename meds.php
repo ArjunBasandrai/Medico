@@ -13,7 +13,7 @@
         }
     }
     
-    ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -38,7 +38,7 @@
             </div>
             <?php
                 if (isset($_GET['med'])) {
-                    $sql = "SELECT pharm.address AS address, stock.rate AS rate,pharm.contact AS contact, SQRT(POWER((:lat-ST_X(pharm.coordinates))*110.574,2) + POWER((:long-ST_Y(pharm.coordinates))*111.320*COS(ST_X(pharm.coordinates)),2)) AS distance, pharm.name AS pharm, medicines.name AS med, salt.name AS salt, stock.stock AS count FROM stock JOIN salt JOIN medicines JOIN pharm ON salt.salt_id = medicines.salt_id AND pharm.pharm_id = stock.pharm_id AND medicines.med_id = stock.med_id WHERE medicines.name=:med OR salt.name=:med ORDER BY SQRT(POWER((:lat-ST_X(pharm.coordinates))*110.574,2) + POWER((:long-ST_Y(pharm.coordinates))*111.320*COS(ST_X(pharm.coordinates)),2))";
+                    $sql = "SELECT stock.stock_id AS stock_id, pharm.address AS address, stock.rate AS rate,stock.stock AS stock,pharm.contact AS contact, SQRT(POWER((:lat-ST_X(pharm.coordinates))*110.574,2) + POWER((:long-ST_Y(pharm.coordinates))*111.320*COS(ST_X(pharm.coordinates)),2)) AS distance, pharm.name AS pharm, medicines.name AS med, salt.name AS salt, stock.stock AS count FROM stock JOIN salt JOIN medicines JOIN pharm ON salt.salt_id = medicines.salt_id AND pharm.pharm_id = stock.pharm_id AND medicines.med_id = stock.med_id WHERE medicines.name=:med OR salt.name=:med ORDER BY SQRT(POWER((:lat-ST_X(pharm.coordinates))*110.574,2) + POWER((:long-ST_Y(pharm.coordinates))*111.320*COS(ST_X(pharm.coordinates)),2))";
                     $stmt = $pdo->prepare($sql);
                     $stmt->execute(array(
                         ":lat" => $_SESSION['lat'],
@@ -47,7 +47,7 @@
                     ));
                     $row = $stmt->fetchAll();
                     foreach ($row as $r) {
-        ?>
+            ?>
             <div class="med-cards flexbox">
                 <div class="med-card">
                     <h2><?= $r['pharm'] ?></h2>
@@ -57,10 +57,13 @@
                         <div class="med-det flexbox">
                             <h3><?= $r['med'] ?></h3>
                             <h2>₹<?= $r['rate'] ?></h2>
+                            <p><?= $r['stock']?> pieces available</p>
                         </div>
                         <form class="flexbox" method="post" action="order.php">
+                        <input type="hidden" name="med" value="<?= $r['med'] ?>">
+                        <input type="hidden" name="stock_id" value="<?= $r['stock_id'] ?>">
                         <label for="quant">Qty:</label>
-                        <input type="number" name="q" id="quant" value="1" class="quant" required>
+                        <input type="number" name="stock" id="quant" value="1" class="quant" min="0" max ="<?= $r['stock']?>" required>
                         <input type="submit" value="Order" class="sub">
                         </form>
                     </div>
